@@ -23,3 +23,9 @@ interface Author {
 interface Asset {
   url: string
 }
+
+interface InitialProps {
+  globals: {
+    categories: Category[]
+  }
+}

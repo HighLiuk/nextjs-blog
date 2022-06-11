@@ -1,18 +1,11 @@
 import Link from "next/link"
 import { FC } from "react"
 
-const categories: Category[] = [
-  {
-    name: "React",
-    slug: "react",
-  },
-  {
-    name: "Web Development",
-    slug: "web-development",
-  },
-]
+type Props = {
+  categories: Category[]
+}
 
-const Header: FC = () => {
+const Header: FC<Props> = ({ categories }) => {
   return (
     <>
       <div className="container mx-auto mb-8 px-10">

@@ -1,10 +1,14 @@
 import { FC, PropsWithChildren } from "react"
 import Header from "./Header"
 
-const Layout: FC<PropsWithChildren> = ({ children }) => {
+type Props = {
+  categories: Category[]
+}
+
+const Layout: FC<PropsWithChildren<Props>> = ({ children, categories }) => {
   return (
     <>
-      <Header />
+      <Header categories={categories} />
 
       {children}
     </>

@@ -38,3 +38,12 @@ export const GET_RECENT_POSTS: string = gql`
     }
   }
 `
+
+export const GET_CATEGORIES: string = gql`
+  query GetCategories {
+    categories {
+      name
+      slug
+    }
+  }
+`
