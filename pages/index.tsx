@@ -1,13 +1,14 @@
 import Head from "next/head"
 import type { GetStaticProps, NextPage } from "next"
 import { Categories, PostCard, PostWidget } from "@/components"
-import { getPosts } from "@/services"
+import { getPosts, getRecentPosts } from "@/services"
 
 type Props = {
   posts: Post[]
+  recentPosts: Post[]
 }
 
-const Home: NextPage<Props> = ({ posts }) => {
+const Home: NextPage<Props> = ({ posts, recentPosts }) => {
   return (
     <>
       <div className="container mx-auto mb-8 px-10">
@@ -25,7 +26,7 @@ const Home: NextPage<Props> = ({ posts }) => {
 
           <div className="col-span-1 lg:col-span-4">
             <div className="relative top-8 lg:sticky">
-              <PostWidget />
+              <PostWidget posts={recentPosts} title="Recent Posts" />
               <Categories />
             </div>
           </div>
@@ -38,11 +39,12 @@ const Home: NextPage<Props> = ({ posts }) => {
 export default Home
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const posts = await getPosts()
+  const [posts, recentPosts] = await Promise.all([getPosts(), getRecentPosts()])
 
   return {
     props: {
       posts,
+      recentPosts,
     },
   }
 }

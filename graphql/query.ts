@@ -25,3 +25,16 @@ export const GET_POSTS: string = gql`
     }
   }
 `
+
+export const GET_RECENT_POSTS: string = gql`
+  query GetRecentPosts {
+    posts(orderBy: createdAt_ASC, last: 3) {
+      title
+      slug
+      createdAt
+      featuredImage {
+        url
+      }
+    }
+  }
+`
