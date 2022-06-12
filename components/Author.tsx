@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { FC } from "react"
 
 type Props = {
@@ -7,7 +8,22 @@ type Props = {
 const Author: FC<Props> = ({ author }) => {
   return (
     <>
-      <div></div>
+      <div className="relative mt-20 mb-8 rounded-lg bg-black bg-opacity-20 p-12 text-center">
+        <div className="absolute left-0 right-0 -top-14">
+          <Image
+            className="rounded-full align-middle"
+            src={author.photo.url}
+            alt={author.name}
+            height={100}
+            width={100}
+            unoptimized
+          />
+        </div>
+
+        <h3 className="my-4 text-xl font-bold text-white">{author.name}</h3>
+
+        <p className="text-lg text-white">{author.bio}</p>
+      </div>
     </>
   )
 }
