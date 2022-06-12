@@ -1,4 +1,5 @@
 import moment from "moment"
+import Image from "next/image"
 import Link from "next/link"
 import { FC } from "react"
 
@@ -25,13 +26,13 @@ const PostCard: FC<Props> = ({ post }) => {
 
         <div className="mb-8 block w-full items-center justify-center text-center lg:flex">
           <div className="mb-4 mr-8 flex w-full items-center justify-center lg:mb-0 lg:w-auto">
-            {/* eslint-disable-next-line */}
-            <img
+            <Image
               className="rounded-full align-middle"
               height={30}
               width={30}
               src={post.author.photo.url}
               alt={post.author.name}
+              unoptimized
             />
 
             <p className="ml-2 inline align-middle text-lg text-gray-700">

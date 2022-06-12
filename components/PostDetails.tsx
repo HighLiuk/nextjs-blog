@@ -1,4 +1,5 @@
 import moment from "moment"
+import Image from "next/image"
 import { FC } from "react"
 import RichTextRenderer from "./RichTextRenderer"
 
@@ -22,13 +23,13 @@ const PostDetails: FC<Props> = ({ post }) => {
         <div className="px-4 lg:px-0">
           <div className="mb-8 flex w-full items-center">
             <div className="mb-4 mr-8 flex w-full items-center lg:mb-0 lg:w-auto">
-              {/* eslint-disable-next-line */}
-              <img
+              <Image
                 className="rounded-full align-middle"
                 height={30}
                 width={30}
                 src={post.author.photo.url}
                 alt={post.author.name}
+                unoptimized
               />
 
               <p className="ml-2 inline align-middle text-lg text-gray-700">

@@ -1,4 +1,5 @@
 import moment from "moment"
+import Image from "next/image"
 import Link from "next/link"
 import { FC } from "react"
 
@@ -16,13 +17,13 @@ const PostWidget: FC<Props> = ({ title, posts }) => {
         {posts.map((post, i) => (
           <div key={i} className="mb-4 flex w-full items-center">
             <div className="w-16 flex-none">
-              {/* eslint-disable-next-line */}
-              <img
+              <Image
                 className="rounded-full align-middle"
                 height={60}
                 width={60}
                 src={post.featuredImage.url}
                 alt={post.title}
+                unoptimized
               />
             </div>
 
