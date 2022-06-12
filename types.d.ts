@@ -4,6 +4,9 @@ interface Post {
   excerpt: string
   createdAt: string
   featuredImage: Asset
+  content: {
+    json: any
+  }
   author: Author
   categories: Category[]
 }

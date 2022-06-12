@@ -1,5 +1,6 @@
 import moment from "moment"
 import { FC } from "react"
+import RichTextRenderer from "./RichTextRenderer"
 
 type Props = {
   post: Post
@@ -56,6 +57,8 @@ const PostDetails: FC<Props> = ({ post }) => {
           </div>
 
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
+
+          <RichTextRenderer content={post.content.json} />
         </div>
       </div>
     </>

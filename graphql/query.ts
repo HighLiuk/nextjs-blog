@@ -10,6 +10,9 @@ export const GET_POST: string = gql`
       featuredImage {
         url
       }
+      content {
+        json
+      }
       author {
         id
         name
